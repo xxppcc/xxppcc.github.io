@@ -1,6 +1,6 @@
 # Site settings
 title: Nice Blog
-name: Nice Blog # your name
+name: 超鹏 # your name
 email: chaopeng002@gmail.com # your email address
 description: >
     A Simple Jekyll Blog Theme. # this means to ignore newlines until "baseurl:"
