@@ -5,7 +5,7 @@ subtitle: "某君昆仲，今隐其名，皆余昔日在中学时良友；分隔
 date: 1918-04-01
 author: 鲁迅
 category: books
-tags: chinese luxun story
+tags: chinese
 finished: true
 ---
 
