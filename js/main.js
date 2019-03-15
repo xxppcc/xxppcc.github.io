@@ -9,6 +9,6 @@ $(document).ready(function(){
                                            $(".newh3").css("margin-left",45);
                                            $(".newh4").css("margin-left",65);
                                            $(".newh5").css("margin-left",85);
-                                           $(".newh6").css("margin-left",105);
+                                           // $(".newh6").css("margin-left",105);
                                            });
                   });
