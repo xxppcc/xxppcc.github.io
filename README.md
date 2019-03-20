@@ -1,6 +1,13 @@
-#致谢
-#####这是一个从[JekyllThemes](http://jekyllthemes.org/)下载的主题；
-#####作者：[Gabriel](https://github.com/Gabriel-Chen)
+
+# 致谢
+
+
+##### 这是一个从[JekyllThemes](http://jekyllthemes.org/)下载的主题；
+
+
+##### 作者：[Gabriel](https://github.com/Gabriel-Chen)
+
+-----
 
 
 Welcome
