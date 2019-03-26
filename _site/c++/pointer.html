@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://xxppcc.github.io/c++/pointer.html">
+  <link rel="alternate" type="application/rss+xml" title="Nice Blog" href="https://xxppcc.github.io/feed.xml">
+
+<!-- Google font -->
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto Sans">
+
+<!-- font awesome -->
+
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+</head>
+
+
+  
+
+  
+
+  </head>
+
+  <body>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>C++ 指针</title>
+  <meta name="description" content="#C++ 指针">
+</head>
+
+
+  <div class="wrapper">
+          <header class="post-header">
+
+    <center><div class="post-title" itemprop="name headline">C++ 指针</div>
+
+		<div class="post-meta"><i class="fa fa-calendar-o"></i> <time datetime="26 Mar 2019" itemprop="datePublished">Mar 26 2019</time>
+
+		&nbsp;&nbsp;•&nbsp;&nbsp;<i class="fa fa-user-secret"></i> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">超鹏</span>
+        
+		<br>
+		<!-- <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-pulse"></i></span>˚C</span> -->
+	</div>
+
+        
+        <div class="post-tags">
+        
+		<a class="post-tags-item" href="https://xxppcc.github.io/tags/">C++</a>
+        
+		<a class="post-tags-item" href="https://xxppcc.github.io/tags/">指针</a>
+        
+	</div>
+    </center>
+    
+</header>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="post-content">
+    <center>
+	
+	<p></p>
+	
+    </center>
+	<h2>Directory</h2>
+</div>
+
+<div id="category"></div>
+
+<div class="post-content" itemprop="articleBody">
+    <p>#C++ 指针</p>
+
+<p>##指针</p>
+
+<p><strong>指针</strong>(pointer)是“指向(point to)”另外一种类型的复合类型。与引用类似，指针也实现了对其他对象的间接访问。然而指针与引用相比又有许多不同点。其一，指针本身就是一个对象，允许对指针赋值和拷贝，而且在指针的生命周期内它可以先后指向几个不同的对象。其二，指针无须在定义时赋初始值。和其他内置类型一样，在块作用域内定义的指针如果没有被初始化，也将拥有一个不确定的值。</p>
+
+<p>定义指针类型的方式是将声明符写成 *d 的形式，其中 d 是变量名。如果在一条语句中定义了几个指针变量，每个变量前面都必须有符号 *。</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="o">*</span><span class="n">ip1</span><span class="p">,</span> <span class="o">*</span><span class="n">ip2</span><span class="p">;</span>      <span class="c1">// ip 和 ip2 都是指向 int 型对象的指针</span>
+    <span class="kt">double</span> <span class="n">dp</span><span class="p">,</span> <span class="o">*</span><span class="n">dp2</span><span class="p">;</span>     <span class="c1">// dp2 是指向 double 型对象的指针，dp 是 double 型对象</span>
+</code></pre></div></div>
+
+<p>###获取对象的地址</p>
+
+<p>指针存放某个对象的地址，想要获取该地址，需要使用<strong>取地址符</strong>（操作符 &amp; ）：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">ival</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ival</span><span class="p">;</span>    <span class="c1">//p 存放变量 ival 的地址，或者说 p 是指向变量 ival 的指针</span>
+
+    <span class="kt">double</span> <span class="n">dval</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="o">*</span><span class="n">pd</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dval</span><span class="p">;</span>    <span class="c1">//正确：初始值是 double 型对象的地址</span>
+    <span class="kt">double</span> <span class="o">*</span><span class="n">pd2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">;</span>      <span class="c1">//正确：初始值是指向 double 对象的指针</span>
+
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi</span> <span class="o">=</span> <span class="n">pd</span><span class="p">;</span>          <span class="c1">//错误：指针 pi 的类型和 pd 的类型不匹配</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dval</span><span class="p">;</span>            <span class="c1">//错误：试图把 double 型对象的地址赋给 int 型指针</span>
+</code></pre></div></div>
+
+<p>###利用指针访问对象</p>
+
+<p>如果指针指向了一个对象，则允许使用<strong>解引用符</strong>（操作符 * ）来访问该对象：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">ival</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ival</span><span class="p">;</span>       <span class="c1">// p 存放着变量 ival 的地址，或者说 p 是指向变量 ival 的指针</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="p">;</span>          <span class="c1">//由符号 * 得到指针 p 所指的对象，输出 42</span>
+
+    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>               <span class="c1">//由符号 * 得到指针 p 所指的对象，即可经由 p 为变量 ival 赋值</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>           <span class="c1">// 输出0</span>
+</code></pre></div></div>
+
+<p>某些符号有多重含义：</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>         
+    <span class="kt">int</span> <span class="o">&amp;</span><span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>        <span class="c1">// &amp;紧随类型名出现，因此是声明的一部分，r 是一个引用</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>              <span class="c1">// *紧随类型名出现，因此是声明的一部分，p 是一个指针</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>             <span class="c1">// &amp;出现在表达式中，是一个取地址符</span>
+    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>             <span class="c1">// *出现在表达式中，是一个解引用符</span>
+    <span class="kt">int</span> <span class="o">&amp;</span><span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>           <span class="c1">// &amp;是声明的一部分，* 是一个解引用符</span>
+</code></pre></div></div>
+
+<p>###空指针</p>
+
+<p><strong>空指针</strong>（null pointer）不指向任何对象，在试图使用一个指针之前代码可以首先检查它是否为空。以下列出几个生成空指针的方法：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>          <span class="c1">//等价与 int * p1 = 0;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="c1">//直接将 p2 初始化为字面常量 0 </span>
+    <span class="c1">// 需要首先#include cstdlib</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p3</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>             <span class="c1">//等价于 int *p3 = 0;</span>
+</code></pre></div></div>
+
+<p>得到空指针最直接的办法就是用字面值 <strong>nullptr</strong> 来初始化指针。</p>
+
+<p>把 int 变量直接赋给指针是错误的操作，即使 int 变量的值恰好等于 0 也不行。</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">zero</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">zero</span><span class="p">;</span>          <span class="c1">//错误：不能把 int 变量直接赋值给指针</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>建议：初始化所有指针</p>
+</blockquote>
+
+<p>###赋值和其他指针操作</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// pi 被初始化，但没有指向任何对象</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>          <span class="c1">// pi2 被初始化，存有 i 的地址</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi3</span><span class="p">;</span>               <span class="c1">// 如果 pi3 定义于块内，则 pi3 的值是无法确定的</span>
+
+    <span class="n">pi3</span> <span class="o">=</span> <span class="n">pi2</span><span class="p">;</span>              <span class="c1">// pi3 和 pi2 指向同一个对象 i</span>
+    <span class="n">pi2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="c1">// 现在 pi2 不指向任何对象了</span>
+
+    <span class="n">pi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ival</span><span class="p">;</span>             <span class="c1">// pi 的值被改变，现在 pi 指向了 ival</span>
+    <span class="o">*</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="c1">// ival 的值被改变，指针 pi 并没有改变</span>
+</code></pre></div></div>
+
+<p>只要指针拥有一个合法值，就能将它用在条件表达式中。和采用算术值作为条件遵循的规则类似，如果指针的值是 0，条件取 false：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">ival</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>            
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                <span class="c1">// pi 合法，是一个空指针</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">pi2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ival</span><span class="p">;</span>           <span class="c1">// pi2 是一个合法的指针，存放着 ival 的地址</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pi</span><span class="p">)</span>                     <span class="c1">// pi 的值是 0，因此条件的值是 false</span>
+        <span class="c1">//...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pi2</span><span class="p">)</span>                    <span class="c1">// pi2 指向 ival，因此它的值不是 0,条件的值是 true</span>
+        <span class="c1">//...</span>
+</code></pre></div></div>
+<p>###void* 指针</p>
+
+<p><em>*void* **是一种特殊的指针类型，可以用于存放任意对象的地址。一个 void</em> 指针存放着一个地址，这一点和其他指针类似。不同的是，我们该对地址中到底是个什么类型的对象并不了解。</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">double</span> <span class="n">obj</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">,</span> <span class="o">*</span><span class="n">pd</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">pv</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">;</span>                <span class="c1">// 正确：void* 能存放任意类型对象的地址，obj 可以是任意类型的对象</span>
+    <span class="n">pv</span> <span class="o">=</span> <span class="n">pd</span><span class="p">;</span>                    <span class="c1">// pv 可以存放任意类型的指针</span>
+</code></pre></div></div>
+
+
+</div>
+
+<div>
+	
+	<div class="tbc"></div>
+	
+</div>
+
+<div class="share">
+    <p>Share this post with: </p>
+	<a href="https://twitter.com/intent/tweet?text=C++ 指针@&amp;url=https://xxppcc.github.io/c++/pointer.html" class="twitter-share">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+		</span>
+	</a>
+    
+	<a href="https://www.facebook.com/sharer/sharer.php?u=https://xxppcc.github.io/c++/pointer.html" class="facebook-share">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		</span>
+	</a>
+    
+	<a href="https://plus.google.com/share?url=https://xxppcc.github.io/c++/pointer.html" class="googleplus-share">
+		<span class="fa-stack fa-lg">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+		</span>
+	</a>
+</div>
+
+
+<div id="disqus_thread"></div>
+
+
+ 
+</div>
+
+
+</article>
+
+  </div>
+
+</body>
+
+<foot>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <center>
+        
+		<p><a class="link" href="/archive/">Archive</a> /
+		<a class="link" href="/category/">Category</a> / 
+		<a class="link" href="/tags/">Tags</a> / 
+		<a class="link" href="/about/">About</a> 
+		<!-- <a class="link" href="/contact/">Contact</a> -->
+        </p>
+
+        <span><script>document.write(new Date().getFullYear());</script></span>
+        <span>&copy;</span>
+        
+		<a class="link" href="">超鹏</a>
+		<br>
+		<span>Github &copy; <a class="link" href="https://github.com/xxppcc" target="_blank"> xxppcc</a>  </span>
+				
+
+    </center>
+    
+  </div>
+
+</footer>
+
+    <foot>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Derictory -->
+
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+
+<!-- Hit analytics -->
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- Directory -->
+
+<script src="/js/main.js"></script>
+
+</foot>
+
+
+</foot>
+
+</html>
