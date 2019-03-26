@@ -3,7 +3,7 @@ layout: post
 title: "C++ 指针"
 subtitle: ""
 date: 2019-03-26
-author: 超鹏
+author: "超鹏"
 category: C++
 tags: C++,指针
 finished: false
