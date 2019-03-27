@@ -6,8 +6,8 @@
 </description>
     <link>https://xxppcc.github.io/</link>
     <atom:link href="https://xxppcc.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Mar 2019 17:04:32 +0800</pubDate>
-    <lastBuildDate>Wed, 27 Mar 2019 17:04:32 +0800</lastBuildDate>
+    <pubDate>Wed, 27 Mar 2019 18:25:31 +0800</pubDate>
+    <lastBuildDate>Wed, 27 Mar 2019 18:25:31 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -106,6 +106,11 @@
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pi2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;                    &lt;span class=&quot;c1&quot;&gt;// pi2 指向 ival，因此它的值不是 0,条件的值是 true&lt;/span&gt;
         &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;任何非 0 指针对应的条件值都是 true。&lt;/p&gt;
+
+&lt;p&gt;对于两个类型相同的合法指针，可以用相等操作符（ == ）或不相等操作符（ != ）来比较它们，比较的结果是布尔类型。如果两个指针存放的地址值相同，则它们相等；反之它们不相等。这里两个指针存放的地址值相同（两个指针相等）有三种可能：它们都为空、都指向同一个对象，或者都指向了同一个对象的下一个地址。需要注意的是，一个指针指向某对象，同时另一个指针指向另一个对象的下一个地址，此时也有可能这两个指针值相同的情况，即指针相等。&lt;/p&gt;
+
 &lt;h3 id=&quot;void-指针&quot;&gt;void* 指针&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;void*&lt;/strong&gt; 是一种特殊的指针类型，可以用于存放任意对象的地址。一个 void* 指针存放着一个地址，这一点和其他指针类似。不同的是，我们该对地址中到底是个什么类型的对象并不了解。&lt;/p&gt;
