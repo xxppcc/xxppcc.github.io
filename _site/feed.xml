@@ -6,8 +6,8 @@
 </description>
     <link>https://xxppcc.github.io/</link>
     <atom:link href="https://xxppcc.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Mar 2019 00:38:45 +0800</pubDate>
-    <lastBuildDate>Wed, 27 Mar 2019 00:38:45 +0800</lastBuildDate>
+    <pubDate>Wed, 27 Mar 2019 17:04:32 +0800</pubDate>
+    <lastBuildDate>Wed, 27 Mar 2019 17:04:32 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -108,7 +108,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h3 id=&quot;void-指针&quot;&gt;void* 指针&lt;/h3&gt;
 
-&lt;p&gt;&lt;em&gt;*void* **是一种特殊的指针类型，可以用于存放任意对象的地址。一个 void&lt;/em&gt; 指针存放着一个地址，这一点和其他指针类似。不同的是，我们该对地址中到底是个什么类型的对象并不了解。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;void*&lt;/strong&gt; 是一种特殊的指针类型，可以用于存放任意对象的地址。一个 void* 指针存放着一个地址，这一点和其他指针类似。不同的是，我们该对地址中到底是个什么类型的对象并不了解。&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;// 正确：void* 能存放任意类型对象的地址，obj 可以是任意类型的对象&lt;/span&gt;
