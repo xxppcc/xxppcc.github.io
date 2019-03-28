@@ -188,12 +188,35 @@
     <span class="n">pv</span> <span class="o">=</span> <span class="n">pd</span><span class="p">;</span>                    <span class="c1">// pv 可以存放任意类型的指针</span>
 </code></pre></div></div>
 
+<h3 id="指向指针的指针">指向指针的指针</h3>
+
+<p>通过 * 的个数可以区分指针的级别。也就是说。** 表示指向指针的指针，***表示指向指针的指针的指
+针，以此类推：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">ival</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ival</span><span class="p">;</span>             <span class="c1">// pi 指向一个 int 型的数</span>
+    <span class="kt">int</span> <span class="o">**</span><span class="n">ppi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">;</span>            <span class="c1">// ppi 指向一个 int 型的指针</span>
+</code></pre></div></div>
+
+<h3 id="指向指针的引用">指向指针的引用</h3>
+
+<p>引用本身不是一个对象，因此不能定义指向引用的指针。但指针是对象，所以存在对指针的引用：</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>                 <span class="c1">// p 是一个 int 型的指针</span>
+    <span class="kt">int</span> <span class="o">*&amp;</span><span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>            <span class="c1">// r 是一个对指针 p 的引用</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>                 <span class="c1">// r 引用了一个指针，因此给 r 赋值 &amp;i 就是令 p 指向 i</span>
+    <span class="o">*</span><span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                 <span class="c1">// 解引用 r 得到 i，也就是 p 指向的对象，将 i 的值改为 0</span>
+</code></pre></div></div>
+
+<p>以上内容参考于 C++ PRIMER</p>
 
 </div>
 
 <div>
 	
-	<div class="tbc"></div>
+	<div class="eof"></div>
 	
 </div>
 
