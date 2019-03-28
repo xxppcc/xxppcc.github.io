@@ -38,7 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>C++ 指针</title>
-  <meta name="description" content="C++ 指针">
+  <meta name="description" content="指针">
 </head>
 
 
@@ -60,8 +60,6 @@
         
 		<a class="post-tags-item" href="https://xxppcc.github.io/tags/">C++</a>
         
-		<a class="post-tags-item" href="https://xxppcc.github.io/tags/">指针</a>
-        
 	</div>
     </center>
     
@@ -80,9 +78,7 @@
 <div id="category"></div>
 
 <div class="post-content" itemprop="articleBody">
-    <h1 id="c-指针">C++ 指针</h1>
-
-<h2 id="指针">指针</h2>
+    <h1 id="指针">指针</h1>
 
 <p><strong>指针</strong>(pointer)是“指向(point to)”另外一种类型的复合类型。与引用类似，指针也实现了对其他对象的间接访问。然而指针与引用相比又有许多不同点。其一，指针本身就是一个对象，允许对指针赋值和拷贝，而且在指针的生命周期内它可以先后指向几个不同的对象。其二，指针无须在定义时赋初始值。和其他内置类型一样，在块作用域内定义的指针如果没有被初始化，也将拥有一个不确定的值。</p>
 
@@ -92,7 +88,7 @@
     <span class="kt">double</span> <span class="n">dp</span><span class="p">,</span> <span class="o">*</span><span class="n">dp2</span><span class="p">;</span>     <span class="c1">// dp2 是指向 double 型对象的指针，dp 是 double 型对象</span>
 </code></pre></div></div>
 
-<h3 id="获取对象的地址">获取对象的地址</h3>
+<h2 id="获取对象的地址">获取对象的地址</h2>
 
 <p>指针存放某个对象的地址，想要获取该地址，需要使用<strong>取地址符</strong>（操作符 &amp; ）：</p>
 
@@ -107,7 +103,7 @@
     <span class="n">pi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dval</span><span class="p">;</span>            <span class="c1">// 错误：试图把 double 型对象的地址赋给 int 型指针</span>
 </code></pre></div></div>
 
-<h3 id="利用指针访问对象">利用指针访问对象</h3>
+<h2 id="利用指针访问对象">利用指针访问对象</h2>
 
 <p>如果指针指向了一个对象，则允许使用<strong>解引用符</strong>（操作符 * ）来访问该对象：</p>
 
@@ -128,7 +124,7 @@
     <span class="kt">int</span> <span class="o">&amp;</span><span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>        <span class="c1">// &amp;是声明的一部分，* 是一个解引用符</span>
 </code></pre></div></div>
 
-<h3 id="空指针">空指针</h3>
+<h2 id="空指针">空指针</h2>
 
 <p><strong>空指针</strong>（null pointer）不指向任何对象，在试图使用一个指针之前代码可以首先检查它是否为空。以下列出几个生成空指针的方法：</p>
 
@@ -150,7 +146,7 @@
   <p>建议：初始化所有指针</p>
 </blockquote>
 
-<h3 id="赋值和其他指针操作">赋值和其他指针操作</h3>
+<h2 id="赋值和其他指针操作">赋值和其他指针操作</h2>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
     <span class="kt">int</span> <span class="o">*</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// pi 被初始化，但没有指向任何对象</span>
@@ -179,7 +175,7 @@
 
 <p>对于两个类型相同的合法指针，可以用相等操作符（ == ）或不相等操作符（ != ）来比较它们，比较的结果是布尔类型。如果两个指针存放的地址值相同，则它们相等；反之它们不相等。这里两个指针存放的地址值相同（两个指针相等）有三种可能：它们都为空、都指向同一个对象，或者都指向了同一个对象的下一个地址。需要注意的是，一个指针指向某对象，同时另一个指针指向另一个对象的下一个地址，此时也有可能这两个指针值相同的情况，即指针相等。</p>
 
-<h3 id="void-指针">void* 指针</h3>
+<h2 id="void-指针">void* 指针</h2>
 
 <p><strong>void*</strong> 是一种特殊的指针类型，可以用于存放任意对象的地址。一个 void* 指针存放着一个地址，这一点和其他指针类似。不同的是，我们该对地址中到底是个什么类型的对象并不了解。</p>
 
@@ -188,7 +184,7 @@
     <span class="n">pv</span> <span class="o">=</span> <span class="n">pd</span><span class="p">;</span>                    <span class="c1">// pv 可以存放任意类型的指针</span>
 </code></pre></div></div>
 
-<h3 id="指向指针的指针">指向指针的指针</h3>
+<h2 id="指向指针的指针">指向指针的指针</h2>
 
 <p>通过 * 的个数可以区分指针的级别。也就是说。** 表示指向指针的指针，***表示指向指针的指针的指
 针，以此类推：</p>
@@ -198,7 +194,7 @@
     <span class="kt">int</span> <span class="o">**</span><span class="n">ppi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">pi</span><span class="p">;</span>            <span class="c1">// ppi 指向一个 int 型的指针</span>
 </code></pre></div></div>
 
-<h3 id="指向指针的引用">指向指针的引用</h3>
+<h2 id="指向指针的引用">指向指针的引用</h2>
 
 <p>引用本身不是一个对象，因此不能定义指向引用的指针。但指针是对象，所以存在对指针的引用：</p>
 
